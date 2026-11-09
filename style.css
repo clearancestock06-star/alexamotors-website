@@ -131,4 +131,4 @@ footer a:hover{color:var(--gold2)}
 @media(max-width:640px){.wrap{width:calc(100% - 32px)}.nav{display:none}.bar .btn{height:38px;padding:0 14px;font-size:12px}.hero{padding:30px 0 44px}.cards{grid-template-columns:1fr}form.enq{grid-template-columns:1fr;padding:26px}.enquiry-side{padding:28px}section.block{padding:60px 0}.slide-cap h3{font-size:20px}.arrow{width:38px;height:38px}.stats{gap:20px}.strip .wrap{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 .hero-grid>*,.vgrid>*,.vstory>*,.split>*,.enquiry-box>*{min-width:0}
-.slider{width:100%}
+.slider{width:100%}.bar{height:78px}.brand img.logo{height:58px;width:auto}footer .brand img.logo{height:72px}@media(max-width:640px){.brand img.logo{height:44px}}
