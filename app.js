@@ -110,6 +110,7 @@ function wireEnquiry(form, extra = {}) {
   const show = (msg, ok) => { status.hidden = false; status.className = `status ${ok ? 'ok' : 'err'}`; status.textContent = msg; };
   form.addEventListener('submit', async e => {
     e.preventDefault();
+    if (button.disabled) return;
     const invalid = [...form.querySelectorAll('[required]')].find(f => !f.value.trim() || (f.type === 'email' && !f.checkValidity()));
     if (invalid) { show('Please fill in your name, a valid email and a message.', false); invalid.focus(); return; }
     if (form._honey && form._honey.value) return;
@@ -121,14 +122,18 @@ function wireEnquiry(form, extra = {}) {
     button.textContent = 'Sending…';
     try {
       const res = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) });
-      const out = await res.json().catch(() => ({}));
-      if (!res.ok || out.success === 'false' || out.success === false) throw new Error(out.message || 'Send failed');
+      const out = await res.json();
+      if (!res.ok || (out?.success !== true && out?.success !== 'true')) throw new Error('Delivery was not confirmed');
       form.reset();
       show('Thank you — your enquiry has been sent. We will be in touch soon.', true);
     } catch (err) {
       const body = Object.entries(data).filter(([k]) => !k.startsWith('_')).map(([k, v]) => `${k}: ${v}`).join('\n');
-      show('Sorry, the form could not send right now. Opening your email app instead…', false);
-      location.href = `mailto:contact@alexamotors.com?subject=${encodeURIComponent('Vehicle enquiry')}&body=${encodeURIComponent(body)}`;
+      show('Delivery could not be confirmed. Your message is still in the form. You can try again or ', false);
+      const emailLink = document.createElement('a');
+      emailLink.className = 'policy-link';
+      emailLink.textContent = 'email us directly';
+      emailLink.href = `mailto:contact@alexamotors.com?subject=${encodeURIComponent(data._subject || 'Vehicle enquiry')}&body=${encodeURIComponent(body)}`;
+      status.append(emailLink, '.');
     } finally {
       button.disabled = false;
       button.innerHTML = label;
