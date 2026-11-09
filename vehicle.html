@@ -3,52 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111210">
 <title>Vehicle details | Alexa Motors Ltd</title>
+<meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
 <script src="vehicle.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="header"><div class="wrap bar"><a class="brand" href="./"><img src="mark.svg" alt="" width="41" height="41"><span>ALEXA<small>MOTORS LTD</small></span></a><a class="button outline" href="./#showroom">Back to showroom</a></div></header>
-<main class="wrap vehicle-page" id="main">
-<p id="missing" hidden>This vehicle listing is unavailable. <a href="./#showroom">Return to the showroom.</a></p>
-<article id="listing" hidden>
-<div class="eyebrow ink"><i></i> SAMPLE LISTING</div>
-<h1 id="model"></h1>
-<p class="listing-note">Illustrative photos and example vehicle details. Mileage, history, availability and warranty terms need dealer confirmation.</p>
-<div class="vehicle-layout">
-<section class="gallery" aria-label="Vehicle gallery">
-<a id="large-link" target="_blank" rel="noopener"><img id="large-photo" width="750" height="500"><span class="photo-count" id="photo-count" aria-hidden="true"></span><span>Open full-size photo</span></a>
-<div class="gallery-buttons" aria-label="Choose a photo"></div>
-</section>
-<aside class="spec-panel">
-<h2>Vehicle at a glance</h2>
-<dl id="specs"></dl>
-<a class="button gold" href="#vehicle-enquiry">Enquire about this vehicle</a>
-</aside>
-</div>
-<div class="vehicle-layout listing-bottom">
-<div class="vehicle-story">
-<section><h2>About this model</h2><p id="description"></p></section>
-<section><h2>Example service record</h2><p>Sample entries for the preview. Ask for the dated invoices and service book for the actual vehicle.</p><div id="service" class="service-list"></div></section>
-<section><h2 id="warranty-heading"></h2><p id="warranty"></p></section>
-</div>
-<section class="spec-panel" id="vehicle-enquiry">
-<h2>Vehicle enquiry</h2><p class="listing-note">Prepare and copy a message. Sending will be available once dealership contact details are added.</p>
-<form id="vehicle-form">
-<label for="name">Your name <small>(optional)</small><input id="name" autocomplete="name" maxlength="80"></label>
-<label for="message">Your question<textarea id="message" rows="4" required maxlength="1000" placeholder="Ask about availability, service records or a viewing"></textarea></label>
-<button class="button gold" type="submit">Prepare enquiry</button>
-<div id="vehicle-result" hidden><label for="vehicle-draft">Your enquiry<textarea id="vehicle-draft" rows="6" readonly></textarea></label><button class="button dark" type="button" id="vehicle-copy">Copy message</button></div>
-<p id="vehicle-status" role="status"></p>
-</form>
-</section>
-</div>
-</article>
-<noscript>Enable JavaScript to view the gallery and prepare an enquiry.</noscript>
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="mark.svg" alt="" width="32" height="32"><span>ALEXA<small>MOTORS LTD</small></span></a>
+    <nav class="nav" aria-label="Main navigation"><a href="./#showroom">Showroom</a><a href="./#guide">Buying guide</a><a href="#vehicle-enquiry">Enquire</a></nav>
+    <a class="btn btn-ghost" href="./#showroom">← Back to showroom</a>
+  </div>
+</header>
+
+<main class="wrap vpage" id="main">
+  <p id="missing" hidden>This vehicle listing is unavailable. <a href="./#showroom" style="color:var(--gold2)">Return to the showroom.</a></p>
+  <article id="listing" hidden>
+    <div class="crumbs"><a href="./">Home</a> / <a href="./#showroom">Showroom</a> / <span id="crumb"></span></div>
+    <div class="vtitle">
+      <div><span class="eyebrow" id="body-tag">Sample listing</span><h1 id="model"></h1></div>
+      <p>Illustrative photos and example details. Mileage, history, availability and warranty terms need dealer confirmation.</p>
+    </div>
+
+    <div class="vgrid">
+      <section class="gallery" aria-label="Vehicle gallery">
+        <div class="slider" id="gallery-slider" aria-roledescription="carousel">
+          <div class="slides"></div>
+          <span class="counter" aria-hidden="true"></span>
+          <button class="arrow prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="arrow next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="thumbs" aria-label="Choose a photo"></div>
+      </section>
+      <aside class="panel">
+        <h2>At a glance</h2>
+        <dl class="specs" id="specs"></dl>
+        <a class="btn btn-gold" href="#vehicle-enquiry">Enquire about this car</a>
+      </aside>
+    </div>
+
+    <div class="vstory">
+      <div>
+        <section class="panel"><h2>About this model</h2><p id="description"></p></section>
+        <section class="panel"><h2>Example service record</h2><p>Sample entries for this preview. Ask for dated invoices and the service book for the actual vehicle.</p><div class="service" id="service"></div></section>
+        <section class="panel"><h2 id="warranty-heading"></h2><p id="warranty"></p></section>
+      </div>
+      <section class="panel" id="vehicle-enquiry">
+        <h2>Enquire about this car</h2>
+        <p class="note" style="margin:-6px 0 16px">Your message goes straight to contact@alexamotors.com.</p>
+        <form class="enq" id="vehicle-form" novalidate>
+          <input type="hidden" name="_subject" value="Vehicle enquiry – Alexa Motors">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="field"><label for="v-name">Full name</label><input id="v-name" name="name" autocomplete="name" required maxlength="80"></div>
+          <div class="field"><label for="v-email">Email</label><input id="v-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="v-phone">Phone (optional)</label><input id="v-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="v-message">Your question</label><textarea id="v-message" name="message" required maxlength="1500" placeholder="Availability, service records or a viewing…"></textarea></div>
+          <button class="btn btn-gold" type="submit">Send enquiry</button>
+          <p class="status" role="status" hidden></p>
+        </form>
+      </section>
+    </div>
+  </article>
+  <noscript>Enable JavaScript to view the gallery and send an enquiry.</noscript>
 </main>
-<footer><div class="wrap bar"><a class="brand" href="./"><img src="mark.svg" alt="" width="41" height="41"><span>ALEXA<small>MOTORS LTD</small></span></a><p>© ALEXA MOTORS LTD</p><a href="./#showroom">Showroom</a></div></footer>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="mark.svg" alt="" width="32" height="32"><span>ALEXA<small>MOTORS LTD</small></span></a>
+    <span>© <span id="year">2026</span> Alexa Motors Ltd · <a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a></span>
+    <a href="./#showroom">Showroom</a>
+  </div>
+</footer>
 </body>
 </html>
