@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Vehicle details | Alexa Motors Ltd</title>
 <meta name="theme-color" content="#0b0b0c">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -67,6 +69,7 @@
           <div class="field"><label for="v-phone">Phone (optional)</label><input id="v-phone" name="phone" type="tel" autocomplete="tel"></div>
           <div class="field"><label for="v-message">Your question</label><textarea id="v-message" name="message" required maxlength="1500" placeholder="Availability, service records or a viewing…"></textarea></div>
           <button class="btn btn-gold" type="submit">Send enquiry</button>
+          <p class="note">We only use your details to reply. See our <a href="privacy.html" style="color:var(--gold2);text-decoration:underline">Privacy Policy</a>.</p>
           <p class="status" role="status" hidden></p>
         </form>
       </section>
@@ -78,7 +81,7 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="./"><img class="logo" src="logo.svg" alt="Alexa Motors Ltd" width="138" height="46"></a>
-    <span>© <span id="year">2026</span> Alexa Motors Ltd · <a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a></span>
+    <span class="foot-links"><span>Alexa Motors Ltd</span><a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a></span>
     <a href="./#showroom">Showroom</a>
   </div>
 </footer>
