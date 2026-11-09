@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
+<script src="app.js?v=fcd97e0708df" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -30,7 +30,7 @@
 <main id="main">
 <section class="hero" id="home">
   <div class="wrap hero-grid">
-    <div class="reveal">
+    <div>
       <span class="eyebrow">Alexa Motors Ltd</span>
       <h1>Find your next drive, <em class="g">curated</em> for you.</h1>
       <p class="lead">From everyday hatchbacks to sports coupés — a hand-picked collection of premium cars, presented with honest detail.</p>
@@ -44,8 +44,13 @@
         <div><b>9</b><span>Photos per car</span></div>
       </div>
     </div>
-    <div class="slider reveal" id="hero-slider" aria-roledescription="carousel" aria-label="Featured cars">
-      <div class="slides"></div>
+    <div class="slider" id="hero-slider" aria-roledescription="carousel" aria-label="Featured cars">
+      <div class="slides">
+        <div class="slide" role="group" aria-label="1 of 8">
+          <img src="assets/range-rover.webp" alt="Range Rover Sport" fetchpriority="high" width="512" height="341">
+          <div class="slide-cap"><div><small>SUV</small><h3>Range Rover Sport</h3></div><a href="vehicle.html?model=range-rover">View details →</a></div>
+        </div>
+      </div>
       <span class="counter" aria-hidden="true"></span>
       <div class="dots" role="tablist" aria-label="Choose slide"></div>
       <button class="arrow prev" type="button" aria-label="Previous car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg></button>
