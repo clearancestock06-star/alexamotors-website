@@ -133,4 +133,17 @@ wireEnquiry(document.querySelector('#enquiry-form'));
 
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { threshold: .12 }) : null;
 document.querySelectorAll('.reveal').forEach(n => io ? io.observe(n) : n.classList.add('in'));
-const y = document.querySelector('#year'); if (y) y.textContent = new Date().getFullYear();
+(function cookieNotice() {
+  let seen = false;
+  try { seen = localStorage.getItem('am_notice') === '1'; } catch (e) {}
+  if (seen) return;
+  const bar = el('div', 'cookie-bar');
+  bar.setAttribute('role', 'region');
+  bar.setAttribute('aria-label', 'Cookie notice');
+  bar.innerHTML = '<p>We don’t use advertising or tracking cookies. This site only remembers that you have seen this notice. <a href="cookies.html">Cookie Policy</a> · <a href="privacy.html">Privacy Policy</a></p><button type="button" class="btn btn-gold">OK</button>';
+  bar.querySelector('button').addEventListener('click', () => {
+    try { localStorage.setItem('am_notice', '1'); } catch (e) {}
+    bar.remove();
+  });
+  document.body.append(bar);
+})();
