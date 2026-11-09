@@ -56,14 +56,14 @@ if (!vehicle) {
 
   const photos = [
     ['Front angle', `assets/${key}.webp`],
-    ['Rear angle', `assets/gallery/${key}-rear-angle.webp`],
-    ['Side profile', `assets/gallery/${key}-side.webp`],
-    ['Front view', `assets/gallery/${key}-front.webp`],
-    ['Rear view', `assets/gallery/${key}-rear.webp`],
-    ['Dashboard', `assets/gallery/${key}-dashboard.webp`],
-    ['Driver’s view', `assets/gallery/${key}-driver.webp`],
-    ['Seats', `assets/gallery/${key}-seats.webp`],
-    [key === 'polestar' ? 'Under bonnet (EV)' : 'Engine bay', `assets/gallery/${key}-engine.webp`]
+    ['Rear angle', `assets/${key}-rear-angle.webp`],
+    ['Side profile', `assets/${key}-side.webp`],
+    ['Front view', `assets/${key}-front.webp`],
+    ['Rear view', `assets/${key}-rear.webp`],
+    ['Dashboard', `assets/${key}-dashboard.webp`],
+    ['Driver’s view', `assets/${key}-driver.webp`],
+    ['Seats', `assets/${key}-seats.webp`],
+    [key === 'polestar' ? 'Under bonnet (EV)' : 'Engine bay', `assets/${key}-engine.webp`]
   ];
   const buttons = photos.map(([label, src]) => {
     const button = document.createElement('button');
