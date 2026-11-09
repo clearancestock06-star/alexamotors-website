@@ -1,46 +1,144 @@
 <!doctype html>
-<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Explore the Alexa Motors showroom and prepare a vehicle enquiry."><meta name="theme-color" content="#101110"><title>Alexa Motors Ltd | Vehicle Showroom</title><link rel="icon" href="mark.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexa Motors Ltd | Premium Vehicle Showroom</title>
+<meta name="description" content="Alexa Motors Ltd – a curated showroom of premium cars. Explore the collection and send an enquiry.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="header"><div class="wrap bar"><a class="brand" href="#home"><img src="mark.svg" alt="" width="41" height="41"><span>ALEXA<small>MOTORS LTD</small></span></a><nav aria-label="Main navigation"><a href="#showroom">Showroom</a><a href="#buying">Buying guide</a></nav><a class="button outline" href="#enquire">Get in touch <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div></header>
+<header class="header">
+  <div class="wrap bar">
+    <a class="brand" href="#home"><img src="mark.svg" alt="" width="32" height="32"><span>ALEXA<small>MOTORS LTD</small></span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#showroom">Showroom</a><a href="#why">Why us</a><a href="#guide">Buying guide</a><a href="#enquire">Contact</a>
+    </nav>
+    <a class="btn btn-gold" href="#enquire">Enquire now</a>
+  </div>
+</header>
+
 <main id="main">
-<section class="hero" id="home"><div class="wrap hero-inner"><div class="eyebrow"><i></i> ALEXA MOTORS LTD</div><h1>Find your<br>next drive<span>.</span></h1><p>From everyday hatchbacks to sports coupés, discover a car that fits the way you drive.</p><div class="actions"><a class="button gold" href="#showroom">Explore the showroom <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a><a class="button outline" href="#enquire">Make an enquiry</a></div></div><figure class="hero-photo"><img src="assets/porsche.webp" alt="Illustrative silver Porsche parked in a British street with an ALEXA MOTORS display plate"></figure></section>
-<div class="ribbon"><div class="wrap ribbon-inner"><span><b>01</b> Explore by body style</span><span><b>02</b> Compare what matters</span><span><b>03</b> Plan your next step</span></div></div>
-<section class="showroom wrap" id="showroom"><div class="eyebrow ink"><i></i> THE SHOWROOM</div><div class="section-head"><div><h2>The collection<span>.</span></h2><p>Eight models to explore. Photos are illustrative and availability is to be confirmed.</p></div><div class="filters" aria-label="Filter vehicle styles"><button type="button" data-filter="all" aria-pressed="true">All cars</button><button type="button" data-filter="suv" aria-pressed="false">SUV</button><button type="button" data-filter="saloon" aria-pressed="false">Saloon</button><button type="button" data-filter="hatchback" aria-pressed="false">Hatchback</button><button type="button" data-filter="coupe" aria-pressed="false">Coupé</button><button type="button" data-filter="estate" aria-pressed="false">Estate</button><button type="button" data-filter="electric" aria-pressed="false">Electric</button></div></div><p class="results-count" id="filter-status" aria-live="polite">Showing all 8 models</p>
-<div class="cards">
-<article class="card" data-category="suv">
-  <a class="vehicle-media" href="vehicle.html?model=range-rover" aria-label="View Range Rover Sport"><img src="assets/range-rover.webp" alt="Illustrative Range Rover Sport with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">01 / 08</span></a>
-  <div class="card-copy"><div class="tag">SUV</div><h3>Range Rover Sport</h3><p>A high driving position and space for family weekends.</p><a href="vehicle.html?model=range-rover" aria-label="View Range Rover Sport details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="saloon">
-  <a class="vehicle-media" href="vehicle.html?model=bmw" aria-label="View BMW 3 Series"><img src="assets/bmw.webp" alt="Illustrative BMW 3 Series with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">02 / 08</span></a>
-  <div class="card-copy"><div class="tag">Saloon</div><h3>BMW 3 Series</h3><p>An executive saloon for daily commutes and longer journeys.</p><a href="vehicle.html?model=bmw" aria-label="View BMW 3 Series details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="hatchback">
-  <a class="vehicle-media" href="vehicle.html?model=mini" aria-label="View MINI Cooper"><img src="assets/mini.webp" alt="Illustrative MINI Cooper with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">03 / 08</span></a>
-  <div class="card-copy"><div class="tag">Hatchback</div><h3>MINI Cooper</h3><p>A compact hatchback with a distinctive silhouette.</p><a href="vehicle.html?model=mini" aria-label="View MINI Cooper details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="coupe">
-  <a class="vehicle-media" href="vehicle.html?model=porsche" aria-label="View Porsche 718 Cayman"><img src="assets/porsche.webp" alt="Illustrative Porsche 718 Cayman with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">04 / 08</span></a>
-  <div class="card-copy"><div class="tag">Coupé</div><h3>Porsche 718 Cayman</h3><p>A two-seat sports coupé with a low, sculpted profile.</p><a href="vehicle.html?model=porsche" aria-label="View Porsche 718 Cayman details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="estate">
-  <a class="vehicle-media" href="vehicle.html?model=audi" aria-label="View Audi A6 Avant"><img src="assets/audi.webp" alt="Illustrative Audi A6 Avant with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">05 / 08</span></a>
-  <div class="card-copy"><div class="tag">Estate</div><h3>Audi A6 Avant</h3><p>A refined estate with room for luggage and longer trips.</p><a href="vehicle.html?model=audi" aria-label="View Audi A6 Avant details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="electric">
-  <a class="vehicle-media" href="vehicle.html?model=polestar" aria-label="View Polestar 2"><img src="assets/polestar.webp" alt="Illustrative Polestar 2 with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">06 / 08</span></a>
-  <div class="card-copy"><div class="tag">Electric</div><h3>Polestar 2</h3><p>An electric fastback with a clean, understated design.</p><a href="vehicle.html?model=polestar" aria-label="View Polestar 2 details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="hatchback">
-  <a class="vehicle-media" href="vehicle.html?model=mercedes" aria-label="View Mercedes-Benz A-Class"><img src="assets/mercedes.webp" alt="Illustrative Mercedes-Benz A-Class with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">07 / 08</span></a>
-  <div class="card-copy"><div class="tag">Hatchback</div><h3>Mercedes-Benz A-Class</h3><p>A compact premium hatchback for everyday driving.</p><a href="vehicle.html?model=mercedes" aria-label="View Mercedes-Benz A-Class details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-<article class="card" data-category="coupe">
-  <a class="vehicle-media" href="vehicle.html?model=jaguar" aria-label="View Jaguar F-Type"><img src="assets/jaguar.webp" alt="Illustrative Jaguar F-Type with an Alexa Motors display plate" width="750" height="500" loading="lazy"><span class="vehicle-index" aria-hidden="true">08 / 08</span></a>
-  <div class="card-copy"><div class="tag">Coupé</div><h3>Jaguar F-Type</h3><p>A British sports coupé with a long bonnet and sleek profile.</p><a href="vehicle.html?model=jaguar" aria-label="View Jaguar F-Type details">View vehicle <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></a></div>
-</article>
-</div></section>
-<section class="guide" id="buying"><div class="wrap split"><div><div class="eyebrow"><i></i> BUYING GUIDE</div><h2>Before you<br>take the wheel<span>.</span></h2><p>A few things to check when a car catches your eye.</p></div><div class="questions"><details open><summary>What should I check on a used car?</summary><p>Ask for the service history, check the mileage against the paperwork and inspect the tyres, lights and bodywork.</p></details><details><summary>What should I look for on a test drive?</summary><p>Try the car at different speeds if the route allows. Check visibility, seating comfort, braking and how easily you can park it.</p></details><details><summary>How do I compare running costs?</summary><p>Compare insurance quotes, fuel or charging costs and servicing needs for the specific cars on your shortlist.</p></details></div></div></section>
-<section class="wrap split enquiry" id="enquire"><div><div class="eyebrow ink"><i></i> VEHICLE ENQUIRIES</div><h2>What are you<br>looking for<span>?</span></h2><p>Put together an enquiry with your preferred model, budget and any must-have features.</p><p class="preview-note">Preview mode. You can prepare and copy a message here. Dealership contact details will be added before launch.</p></div><form id="enquiry-form"><div class="form-row"><label for="interest">Model of interest<select id="interest" name="interest"><option value="">Any model</option><optgroup label="Showroom models"><option>Range Rover Sport</option><option>BMW 3 Series</option><option>MINI Cooper</option><option>Porsche 718 Cayman</option><option>Audi A6 Avant</option><option>Polestar 2</option><option>Mercedes-Benz A-Class</option><option>Jaguar F-Type</option></optgroup></select></label><label for="budget">Budget (£)<input id="budget" type="number" min="1" step="1" placeholder="e.g. 15000"></label></div><label for="notes">What matters to you? <small>(optional)</small><textarea id="notes" rows="4" maxlength="1000" placeholder="e.g. Automatic, five doors, room for a pushchair"></textarea></label><button class="button gold" type="submit">Prepare enquiry <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12 12 4M5 4h7v7"/></svg></button><div id="result" hidden><label for="draft">Your enquiry<textarea id="draft" rows="5" readonly></textarea></label><button class="button dark" type="button" id="copy">Copy message</button></div><p id="enquiry-status" role="status"></p></form></section>
-</main><footer><div class="wrap bar"><a class="brand" href="#home"><img src="mark.svg" alt="" width="41" height="41"><span>ALEXA<small>MOTORS LTD</small></span></a><p>© ALEXA MOTORS LTD</p><a href="#home">Back to top</a></div></footer></body></html>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Alexa Motors Ltd</span>
+      <h1>Find your next drive, <em class="g">curated</em> for you.</h1>
+      <p class="lead">From everyday hatchbacks to sports coupés — a hand-picked collection of premium cars, presented with honest detail.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#showroom">Explore the showroom <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#enquire">Make an enquiry</a>
+      </div>
+      <div class="stats">
+        <div><b>8</b><span>Premium models</span></div>
+        <div><b>7</b><span>Body styles</span></div>
+        <div><b>9</b><span>Photos per car</span></div>
+      </div>
+    </div>
+    <div class="slider reveal" id="hero-slider" aria-roledescription="carousel" aria-label="Featured cars">
+      <div class="slides"></div>
+      <span class="counter" aria-hidden="true"></span>
+      <div class="dots" role="tablist" aria-label="Choose slide"></div>
+      <button class="arrow prev" type="button" aria-label="Previous car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="arrow next" type="button" aria-label="Next car"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Detailed photo galleries</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Compare by body style</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17h18M5 17l2-6h10l2 6M7 11l1.5-4h7L17 11"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>Viewings by appointment</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>contact@alexamotors.com</div>
+  </div>
+</div>
+
+<section class="block" id="showroom">
+  <div class="wrap">
+    <div class="head reveal">
+      <div><span class="eyebrow">The showroom</span><h2>The <em class="g">collection</em></h2></div>
+      <div class="filters" aria-label="Filter by body style">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="suv" aria-pressed="false">SUV</button>
+        <button type="button" data-filter="saloon" aria-pressed="false">Saloon</button>
+        <button type="button" data-filter="hatchback" aria-pressed="false">Hatchback</button>
+        <button type="button" data-filter="coupe" aria-pressed="false">Coupé</button>
+        <button type="button" data-filter="estate" aria-pressed="false">Estate</button>
+        <button type="button" data-filter="electric" aria-pressed="false">Electric</button>
+      </div>
+    </div>
+    <p class="count" id="filter-status" aria-live="polite">Showing all 8 models · photos are illustrative, availability to be confirmed</p>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<section class="block why" id="why">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Why Alexa Motors</span><h2>A calmer way to <em class="g">buy</em> a car</h2></div>
+    <div class="why-grid">
+      <div class="why-item reveal"><b>01</b><h3>Curated stock</h3><p>A focused line-up of eight models, from city hatchbacks to sports coupés.</p></div>
+      <div class="why-item reveal"><b>02</b><h3>Honest detail</h3><p>Clear photos, mileage and service notes so you can compare properly before you visit.</p></div>
+      <div class="why-item reveal"><b>03</b><h3>Personal service</h3><p>Talk to a real person. Ask questions, arrange a viewing and take your time to decide.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="guide">
+  <div class="wrap split">
+    <div class="reveal"><span class="eyebrow">Buying guide</span><h2>Before you take <em class="g">the wheel</em></h2><p class="lead" style="margin-top:14px">A few things worth checking when a car catches your eye.</p></div>
+    <div class="faq reveal">
+      <details open><summary>What should I check on a used car?</summary><p>Ask for the service history, check the mileage against the paperwork, and inspect the tyres, lights and bodywork.</p></details>
+      <details><summary>What should I look for on a test drive?</summary><p>Try the car at different speeds if the route allows. Check visibility, seating comfort, braking and any warning lights.</p></details>
+      <details><summary>How do I compare running costs?</summary><p>Compare insurance quotes, fuel or charging costs and servicing needs for the specific cars on your shortlist.</p></details>
+      <details><summary>Can I arrange a viewing?</summary><p>Yes — send an enquiry below with the model you like and we will get back to you to arrange a time.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="enquire" style="padding-top:20px">
+  <div class="wrap">
+    <div class="enquiry-box reveal">
+      <div class="enquiry-side">
+        <span class="eyebrow">Vehicle enquiries</span>
+        <h2>Tell us what you are <em class="g">looking for</em></h2>
+        <p class="lead">Share the model, budget and anything that matters to you.</p>
+        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg><a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a></div>
+        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Viewings by appointment</div>
+      </div>
+      <form class="enq" id="enquiry-form" novalidate>
+        <input type="hidden" name="_subject" value="New website enquiry – Alexa Motors">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required maxlength="80" placeholder="John Smith"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+        <div class="field"><label for="phone">Phone <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7…"></div>
+        <div class="field"><label for="interest">Model of interest</label>
+          <select id="interest" name="model"><option value="">Any model</option><option>Range Rover Sport</option><option>BMW 3 Series</option><option>MINI Cooper</option><option>Porsche 718 Cayman</option><option>Audi A6 Avant</option><option>Polestar 2</option><option>Mercedes-Benz A-Class</option><option>Jaguar F-Type</option></select></div>
+        <div class="field"><label for="budget">Budget (£)</label><input id="budget" name="budget" type="number" min="0" step="500" placeholder="e.g. 25000"></div>
+        <div class="field"><label for="contact-pref">Preferred contact</label><select id="contact-pref" name="preferred_contact"><option>Email</option><option>Phone</option><option>WhatsApp</option></select></div>
+        <div class="field full"><label for="message">Message</label><textarea id="message" name="message" required maxlength="1500" placeholder="Automatic, five doors, room for a pushchair, viewing next week…"></textarea></div>
+        <div class="form-foot"><small>We only use your details to reply to this enquiry.</small><button class="btn btn-gold" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
+        <p class="status" id="enquiry-status" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#home"><img src="mark.svg" alt="" width="32" height="32"><span>ALEXA<small>MOTORS LTD</small></span></a>
+    <span>© <span id="year">2026</span> Alexa Motors Ltd · <a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a></span>
+    <a href="#home">Back to top ↑</a>
+  </div>
+</footer>
+</body>
+</html>
