@@ -11,48 +11,41 @@ const vehicles = new Map([
 
 const key = new URLSearchParams(location.search).get('model');
 const vehicle = vehicles.get(key);
-const get = selector => document.querySelector(selector);
+const $ = s => document.querySelector(s);
 
 if (!vehicle) {
-  get('#missing').hidden = false;
+  $('#missing').hidden = false;
 } else {
   const [model, body, km, owners, months, description] = vehicle;
   const miles = Math.round(km / 1.609344 / 100) * 100;
-  const format = new Intl.NumberFormat('en-GB');
+  const fmt = new Intl.NumberFormat('en-GB');
   document.title = `${model} | Alexa Motors Ltd`;
-  get('#model').textContent = model;
-  get('#description').textContent = description;
-  get('#listing').hidden = false;
+  $('#model').textContent = model;
+  $('#crumb').textContent = model;
+  $('#body-tag').textContent = `${body} · Sample listing`;
+  $('#description').textContent = description;
+  $('#listing').hidden = false;
 
   const warranty = key === 'polestar' ? 'Electric drive unit' : 'Transmission';
-  get("#warranty-heading").textContent = `Example ${warranty.toLowerCase()} warranty`;
-  for (const [label, value] of [
-    ['Body style', body],
-    ['Miles driven', `${format.format(miles)} mi`],
-    ['Previous owners', owners],
-    ['Example warranty', `${months} months · ${warranty}`]
-  ]) {
-    const item = document.createElement('div');
-    const title = document.createElement('dt');
-    const detail = document.createElement('dd');
-    title.textContent = label;
-    detail.textContent = value;
-    item.append(title, detail);
-    get('#specs').append(item);
+  $('#warranty-heading').textContent = `Example ${warranty.toLowerCase()} warranty`;
+  $('#warranty').textContent = `This example shows ${months} months of ${warranty.toLowerCase()} cover. Confirm covered components, exclusions and claim limits for the actual vehicle before purchase.`;
+  for (const [label, value] of [['Body style', body], ['Miles driven', `${fmt.format(miles)} mi`], ['Previous owners', owners], ['Example warranty', `${months} months · ${warranty}`]]) {
+    const row = document.createElement('div');
+    const dt = document.createElement('dt'); dt.textContent = label;
+    const dd = document.createElement('dd'); dd.textContent = value;
+    row.append(dt, dd);
+    $('#specs').append(row);
   }
-
-  const serviceNames = key === 'polestar'
+  const services = key === 'polestar'
     ? ['Scheduled inspection', 'Cabin filter and brake check', 'Tyres and charging inspection']
     : ['Oil and filter service', 'Scheduled service and inspection', 'Annual service and brake check'];
-  const serviceIntervals = [0.3, 0.62, 0.91];
-  serviceNames.forEach((name, index) => {
-    const row = document.createElement('p');
-    const distance = document.createElement('strong');
-    distance.textContent = `${format.format(Math.round(miles * serviceIntervals[index] / 100) * 100)} mi`;
-    row.append(distance, document.createTextNode(name));
-    get('#service').append(row);
+  [0.3, 0.62, 0.91].forEach((f, i) => {
+    const p = document.createElement('p');
+    const s = document.createElement('strong');
+    s.textContent = `${fmt.format(Math.round(miles * f / 100) * 100)} mi`;
+    p.append(s, document.createTextNode(services[i]));
+    $('#service').append(p);
   });
-  get('#warranty').textContent = `This example shows ${months} months of ${warranty.toLowerCase()} cover. Confirm covered components, exclusions and claim limits for the actual vehicle before purchase.`;
 
   const photos = [
     ['Front angle', `assets/${key}.webp`],
@@ -65,57 +58,23 @@ if (!vehicle) {
     ['Seats', `assets/${key}-seats.webp`],
     [key === 'polestar' ? 'Under bonnet (EV)' : 'Engine bay', `assets/${key}-engine.webp`]
   ];
-  const buttons = photos.map(([label, src]) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    const thumbnail = document.createElement('img');
-    thumbnail.src = src;
-    thumbnail.alt = '';
-    thumbnail.loading = 'lazy';
-    thumbnail.width = 150;
-    thumbnail.height = 100;
-    const caption = document.createElement('span');
-    caption.textContent = label;
-    button.append(thumbnail, caption);
-    get('.gallery-buttons').append(button);
-    return button;
+  const thumbs = $('.thumbs');
+  const thumbButtons = photos.map(([label, src], i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Show ${label.toLowerCase()}`);
+    b.innerHTML = `<img src="${src}" alt="" loading="lazy" width="96" height="64">`;
+    thumbs.append(b);
+    return b;
   });
-  const showPhoto = index => {
-    const [label, src] = photos[index];
-    get('#large-photo').src = src;
-    get('#large-photo').alt = `${model}, illustrative ${label.toLowerCase()}`;
-    get('#large-link').href = src;
-    get('#photo-count').textContent = `${index + 1} / ${photos.length}`;
-    get('#large-link').setAttribute('aria-label', `Open full-size ${label.toLowerCase()} photo in a new tab`);
-    buttons.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
-  };
-  buttons.forEach((button, i) => button.addEventListener('click', () => showPhoto(i)));
-  showPhoto(0);
-
-  const draft = get('#vehicle-draft');
-  const status = get('#vehicle-status');
-  get('#vehicle-form').addEventListener('submit', event => {
-    event.preventDefault();
-    const message = get('#message').value.trim();
-    if (!message) {
-      status.textContent = 'Enter a question to prepare your enquiry.';
-      get('#message').focus();
-      return;
-    }
-    const name = get('#name').value.trim();
-    draft.value = ['Hello Alexa Motors,', '', `I’m interested in the ${model}.`, message, '', name || 'Thank you.'].join('\n');
-    get('#vehicle-result').hidden = false;
-    status.textContent = 'Your enquiry is ready to copy.';
-    draft.focus();
+  const slider = makeSlider($('#gallery-slider'), photos.map(([label, src], i) =>
+    `<img src="${src}" alt="${model}, ${label.toLowerCase()}" ${i ? 'loading="lazy"' : ''} width="512" height="341"><div class="slide-cap"><div><small>${label}</small></div></div>`), {
+    onChange: i => thumbButtons.forEach((b, n) => {
+      b.setAttribute('aria-current', String(n === i));
+      if (n === i) thumbs.scrollTo({ left: b.offsetLeft - thumbs.offsetLeft - (thumbs.clientWidth - b.clientWidth) / 2, behavior: 'smooth' });
+    })
   });
-  get('#vehicle-copy').addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(draft.value);
-      status.textContent = 'Enquiry copied.';
-    } catch {
-      draft.focus();
-      draft.select();
-      status.textContent = 'The message is selected. Use your device’s copy command.';
-    }
-  });
+  thumbButtons.forEach((b, i) => b.addEventListener('click', () => slider.go(i)));
+  document.querySelector('#v-message').placeholder = `I'm interested in the ${model} — is it available for a viewing?`;
+  wireEnquiry($('#vehicle-form'), { model, _subject: `Enquiry: ${model} – Alexa Motors` });
 }
