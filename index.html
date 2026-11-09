@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formsubmit.co; form-action 'none'; base-uri 'none'; frame-src 'none'; worker-src 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Alexa Motors Ltd | Premium Vehicle Showroom</title>
 <meta name="description" content="Alexa Motors Ltd – a curated showroom of premium cars. Explore the collection and send an enquiry.">
@@ -95,7 +95,7 @@
 
 <section class="block" id="guide">
   <div class="wrap split">
-    <div class="reveal"><span class="eyebrow">Buying guide</span><h2>Before you take <em class="g">the wheel</em></h2><p class="lead" style="margin-top:14px">A few things worth checking when a car catches your eye.</p></div>
+    <div class="reveal"><span class="eyebrow">Buying guide</span><h2>Before you take <em class="g">the wheel</em></h2><p class="lead guide-lead">A few things worth checking when a car catches your eye.</p></div>
     <div class="faq reveal">
       <details open><summary>What should I check on a used car?</summary><p>Ask for the service history, check the mileage against the paperwork, and inspect the tyres, lights and bodywork.</p></details>
       <details><summary>What should I look for on a test drive?</summary><p>Try the car at different speeds if the route allows. Check visibility, seating comfort, braking and any warning lights.</p></details>
@@ -105,7 +105,7 @@
   </div>
 </section>
 
-<section class="block" id="enquire" style="padding-top:20px">
+<section class="block enquiry-block" id="enquire">
   <div class="wrap">
     <div class="enquiry-box reveal">
       <div class="enquiry-side">
@@ -121,13 +121,13 @@
         <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" required maxlength="80" placeholder="John Smith"></div>
         <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="phone">Phone <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7…"></div>
+        <div class="field"><label for="phone">Phone <span class="optional-label">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+44 7…"></div>
         <div class="field"><label for="interest">Model of interest</label>
           <select id="interest" name="model"><option value="">Any model</option><option>Range Rover Sport</option><option>BMW 3 Series</option><option>MINI Cooper</option><option>Porsche 718 Cayman</option><option>Audi A6 Avant</option><option>Polestar 2</option><option>Mercedes-Benz A-Class</option><option>Jaguar F-Type</option></select></div>
         <div class="field"><label for="budget">Budget (£)</label><input id="budget" name="budget" type="number" min="0" step="500" placeholder="e.g. 25000"></div>
         <div class="field"><label for="contact-pref">Preferred contact</label><select id="contact-pref" name="preferred_contact"><option>Email</option><option>Phone</option><option>WhatsApp</option></select></div>
         <div class="field full"><label for="message">Message</label><textarea id="message" name="message" required maxlength="1500" placeholder="Automatic, five doors, room for a pushchair, viewing next week…"></textarea></div>
-        <div class="form-foot"><small>We only use your details to reply to this enquiry. See our <a href="privacy.html" style="color:var(--gold2);text-decoration:underline">Privacy Policy</a>.</small><button class="btn btn-gold" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
+        <div class="form-foot"><small>We only use your details to reply to this enquiry. See our <a href="privacy.html" class="policy-link">Privacy Policy</a>.</small><button class="btn btn-gold" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
         <p class="status" id="enquiry-status" role="status" hidden></p>
       </form>
     </div>
