@@ -20,10 +20,9 @@ function makeSlider(root, items, { autoplay = 0, onChange } = {}) {
   const counter = root.querySelector('.counter');
   let index = 0, timer = null;
   items.forEach((html, i) => {
-    const slide = el('div', 'slide', html);
+    const slide = track.children[i] || track.appendChild(el('div', 'slide', html));
     slide.setAttribute('role', 'group');
     slide.setAttribute('aria-label', `${i + 1} of ${items.length}`);
-    track.append(slide);
     if (dots) {
       const d = el('button');
       d.type = 'button';
@@ -32,8 +31,15 @@ function makeSlider(root, items, { autoplay = 0, onChange } = {}) {
       dots.append(d);
     }
   });
+  const loadImage = i => {
+    const image = track.children[i].querySelector('img[data-src]');
+    if (!image) return;
+    image.src = image.dataset.src;
+    image.removeAttribute('data-src');
+  };
   const go = i => {
     index = (i + items.length) % items.length;
+    loadImage(index);
     track.style.transform = `translateX(-${index * 100}%)`;
     if (dots) [...dots.children].forEach((d, n) => d.setAttribute('aria-current', String(n === index)));
     if (counter) counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
@@ -69,8 +75,8 @@ function makeSlider(root, items, { autoplay = 0, onChange } = {}) {
 
 const hero = document.querySelector('#hero-slider');
 if (hero) {
-  makeSlider(hero, cars.map(([key, name, , label], i) => `
-    <img src="assets/${key}.webp" alt="${name}" ${i ? 'loading="lazy"' : 'fetchpriority="high"'} width="512" height="341">
+  makeSlider(hero, cars.map(([key, name, , label]) => `
+    <img data-src="assets/${key}.webp" alt="${name}" width="512" height="341">
     <div class="slide-cap"><div><small>${label}</small><h3>${name}</h3></div><a href="vehicle.html?model=${key}">View details →</a></div>`), { autoplay: 5000 });
 }
 
