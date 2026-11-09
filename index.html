@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formsubmit.co; form-action 'self' https://formsubmit.co mailto:; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Alexa Motors Ltd | Premium Vehicle Showroom</title>
 <meta name="description" content="Alexa Motors Ltd – a curated showroom of premium cars. Explore the collection and send an enquiry.">
 <meta name="theme-color" content="#0b0b0c">
@@ -125,7 +127,7 @@
         <div class="field"><label for="budget">Budget (£)</label><input id="budget" name="budget" type="number" min="0" step="500" placeholder="e.g. 25000"></div>
         <div class="field"><label for="contact-pref">Preferred contact</label><select id="contact-pref" name="preferred_contact"><option>Email</option><option>Phone</option><option>WhatsApp</option></select></div>
         <div class="field full"><label for="message">Message</label><textarea id="message" name="message" required maxlength="1500" placeholder="Automatic, five doors, room for a pushchair, viewing next week…"></textarea></div>
-        <div class="form-foot"><small>We only use your details to reply to this enquiry.</small><button class="btn btn-gold" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
+        <div class="form-foot"><small>We only use your details to reply to this enquiry. See our <a href="privacy.html" style="color:var(--gold2);text-decoration:underline">Privacy Policy</a>.</small><button class="btn btn-gold" type="submit">Send enquiry <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
         <p class="status" id="enquiry-status" role="status" hidden></p>
       </form>
     </div>
@@ -136,7 +138,7 @@
 <footer>
   <div class="wrap">
     <a class="brand" href="#home"><img class="logo" src="logo.svg" alt="Alexa Motors Ltd" width="138" height="46"></a>
-    <span>© <span id="year">2026</span> Alexa Motors Ltd · <a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a></span>
+    <span class="foot-links"><span>Alexa Motors Ltd</span><a href="mailto:contact@alexamotors.com">contact@alexamotors.com</a><a href="privacy.html">Privacy Policy</a><a href="cookies.html">Cookie Policy</a></span>
     <a href="#home">Back to top ↑</a>
   </div>
 </footer>
