@@ -3,7 +3,7 @@ const vehicles = {
   'range-rover': {
     model: 'Range Rover Sport', year: 2018, plate: '68', miles: 42500, owners: 2, fuel: 'Diesel', body: 'SUV',
     engine: '3.0L', gearbox: 'Automatic', doors: 5, seats: 5, colour: 'White', emission: 'Euro 6', warrantyMonths: 6,
-    description: 'This 2018 Range Rover Sport combines a commanding driving position with a spacious, premium cabin and the footprint of a large SUV. Powered by a 3.0 litre diesel engine with an automatic gearbox, it suits long motorway journeys as well as family weekends away. The raised seating gives a clear view of the road, and the five-seat layout leaves generous boot space for luggage or sports kit. When comparing examples, check the seating configuration, tailgate operation and which driver assistance features are fitted, as specifications vary between trims.'
+    description: 'This 2018 Range Rover Sport combines a commanding driving position with a spacious, premium cabin and the footprint of a large SUV. Powered by a 3.0 litre diesel engine with an automatic gearbox, it suits long motorway journeys as well as family weekends away. The raised seating gives a clear view of the road, and the five-seat layout leaves generous boot space for luggage or sports kit. When comparing vehicles, check the seating configuration, tailgate operation and which driver assistance features are fitted, as specifications vary between trims.'
   },
   'bmw': {
     model: 'BMW 3 Series', year: 2019, plate: '69', miles: 32700, owners: 3, fuel: 'Diesel', body: 'Saloon',
@@ -13,7 +13,7 @@ const vehicles = {
   'mini': {
     model: 'MINI Cooper', year: 2020, plate: '70', miles: 25800, owners: 2, fuel: 'Petrol', body: 'Hatchback',
     engine: '1.5L', gearbox: 'Manual', doors: 3, seats: 4, colour: 'Green', emission: 'Euro 6', warrantyMonths: 3,
-    description: 'This 2020 MINI Cooper pairs a compact footprint with a distinctive, characterful cabin. The 1.5 litre petrol engine and manual gearbox give it a lively feel around town, and its small size makes parking easy. It suits everyday urban driving and the occasional longer trip. Check the door configuration, rear-seat space and infotainment on the example you view.'
+    description: 'This 2020 MINI Cooper pairs a compact footprint with a distinctive, characterful cabin. The 1.5 litre petrol engine and manual gearbox give it a lively feel around town, and its small size makes parking easy. It suits everyday urban driving and the occasional longer trip. Check the door configuration, rear-seat space and infotainment on the vehicle you view.'
   },
   'porsche': {
     model: 'Porsche 718 Cayman', year: 2017, plate: '17', miles: 21700, owners: 2, fuel: 'Petrol', body: 'Coupé',
@@ -69,7 +69,7 @@ if (!car) {
   document.title = `${car.year} ${car.model} | Alexa Motors Ltd`;
   $('#model').textContent = car.model;
   $('#crumb').textContent = car.model;
-  $('#body-tag').textContent = `${car.year} · ${car.body} · Sample listing`;
+  $('#body-tag').textContent = `${car.year} · ${car.body}`;
   $('#listing').hidden = false;
 
   for (const [label, value] of [['Registration', reg], ['Mileage', `${fmt.format(car.miles)} miles`], ['Fuel type', car.fuel], ['Gearbox', car.gearbox]]) {
@@ -112,8 +112,8 @@ if (!car) {
   });
 
   const warranty = car.fuel === 'Electric' ? 'electric drive unit' : 'transmission';
-  $('#warranty-heading').textContent = `Example ${warranty} warranty`;
-  $('#warranty').textContent = `This example shows ${car.warrantyMonths} months of ${warranty} cover. Confirm covered components, exclusions and claim limits for the actual vehicle before purchase.`;
+  $('#warranty-heading').textContent = `${warranty[0].toUpperCase() + warranty.slice(1)} warranty`;
+  $('#warranty').textContent = `The listed ${car.warrantyMonths}-month ${warranty} cover is indicative. Confirm the available cover, exclusions and claim limits before purchase.`;
   const services = car.fuel === 'Electric'
     ? ['Scheduled inspection', 'Cabin filter and brake check', 'Tyres and charging inspection']
     : ['Oil and filter service', 'Scheduled service and inspection', 'Annual service and brake check'];
